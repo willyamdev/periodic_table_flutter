@@ -1,4 +1,4 @@
-import 'package:chemicalelements/home.dart';
+import 'package:chemicalelements/view/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {

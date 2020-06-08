@@ -74,6 +74,9 @@ class HomeController {
       case 10:
         elementColor = Color(0xffe5aedc);
         break;
+      default:
+        elementColor = Colors.red;
+      break;
     }
 
     return elementColor;
