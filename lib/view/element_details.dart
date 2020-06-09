@@ -1,11 +1,19 @@
 import 'package:chemicalelements/components/custom_app_bar.dart';
 import 'package:chemicalelements/controlers/elements_type_controller.dart';
+import 'package:chemicalelements/controlers/wikipedia_api.dart';
+import 'package:chemicalelements/helpers/color_helper.dart';
 import 'package:chemicalelements/models/chemical_element.dart';
 import 'package:flutter/material.dart';
 
-class ElementDetails extends StatelessWidget with ElementsTypeController {
+class ElementDetails extends StatelessWidget
+    with ElementsTypeController, WikipediaApi {
   ChemicalElement element;
   ElementDetails(this.element);
+  String descriptionText = "";
+
+  _getDescription() async{
+    descriptionText = await getDescriptionElement(element.elementName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +33,9 @@ class ElementDetails extends StatelessWidget with ElementsTypeController {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 CustomAppBar("details"),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Hero(
                   tag: element.chemicalSymbol + "info",
                   child: Material(
@@ -51,7 +61,26 @@ class ElementDetails extends StatelessWidget with ElementsTypeController {
                 SizedBox(
                   height: 30,
                 ),
-                _elementDescription(element.description)
+                FutureBuilder(
+                    future: _getDescription(),
+                    builder: (context, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.none:
+                          // TODO: Handle this case.
+                          break;
+                        case ConnectionState.waiting:
+                          return Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(ColorHelper.primaryColor),));
+                          break;
+                        case ConnectionState.active:
+                          // TODO: Handle this case.
+                          break;
+                        case ConnectionState.done:
+                          return _elementDescription(descriptionText);
+                          break;
+                      }
+
+                      return Container();
+                    }),
               ],
             ),
           ),
@@ -99,8 +128,7 @@ class ElementDetails extends StatelessWidget with ElementsTypeController {
   }
 
   _elementDescription(String description) {
-    return Text(
-        description,
+    return Text(description,
         textAlign: TextAlign.justify,
         style: TextStyle(
           color: Colors.white,

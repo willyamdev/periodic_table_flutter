@@ -43,12 +43,12 @@ class _ElementsPageViewState extends State<ElementsPageView>
       controller: _pageController,
       itemCount: widget.elementsList.length,
       itemBuilder: (c, i) {
-        return _elementCell(widget.elementsList[i]);
+        return _elementCell(widget.elementsList[i], i);
       },
     );
   }
 
-  _elementCell(ChemicalElement chemicalElement) {
+  _elementCell(ChemicalElement chemicalElement, int indice) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -64,7 +64,9 @@ class _ElementsPageViewState extends State<ElementsPageView>
           children: <Widget>[
             Hero(
               tag: chemicalElement.chemicalSymbol + 'bg',
-              child: Container(
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                margin: EdgeInsets.only(top: indice == currentElement ? 0 : 50),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(32),
                     color: getElementColor(chemicalElement.elementType)),
