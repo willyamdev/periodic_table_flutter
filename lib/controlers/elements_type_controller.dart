@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ElementsTypeController {
   getElementType(int type) {
@@ -6,34 +7,44 @@ class ElementsTypeController {
 
     switch (type) {
       case 1:
-        elementType = "Não metal";
+        elementType = 'non_metal'.tr();
+        // elementType = "Não metal";
         break;
       case 2:
-        elementType = "Gás nobre";
+        elementType = 'noble_gas'.tr();
+        // elementType = "Gás nobre";
         break;
       case 3:
-        elementType = "Metal alcalino";
+        elementType = 'alkali_metal'.tr();
+        // elementType = "Metal alcalino";
         break;
       case 4:
-        elementType = "Metal alcalino terroso";
+        elementType = 'alkali_earch_metal'.tr();
+        // elementType = "Metal alcalino terroso";
         break;
       case 5:
-        elementType = "Semimetal";
+        elementType = 'semi_metal'.tr();
+        // elementType = "Semimetal";
         break;
       case 6:
-        elementType = "Halogênio";
+        elementType = 'halogen'.tr();
+        // elementType = "Halogênio";
         break;
       case 7:
-        elementType = "Outros metais";
+        elementType = 'other_metals'.tr();
+        // elementType = "Outros metais";
         break;
       case 8:
-        elementType = "Metal de transição";
+        elementType = 'transition_metal'.tr();
+        // elementType = "Metal de transição";
         break;
       case 9:
-        elementType = "Lantanídeo";
+        elementType = 'lanthanide'.tr();
+        // elementType = "Lantanídeo";
         break;
       case 10:
-        elementType = "Actinídio";
+        elementType = 'actinide'.tr();
+        // elementType = "Actinídio";
         break;
     }
 
@@ -76,7 +87,7 @@ class ElementsTypeController {
         break;
       default:
         elementColor = Colors.red;
-      break;
+        break;
     }
 
     return elementColor;

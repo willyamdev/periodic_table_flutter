@@ -3,16 +3,18 @@ import 'package:chemicalelements/components/elements_page_view.dart';
 import 'package:chemicalelements/components/verticalProgressBar.dart';
 import 'package:chemicalelements/controlers/elements_type_controller.dart';
 import 'package:chemicalelements/helpers/screen_helper.dart';
+import 'package:chemicalelements/helpers/translation_helper.dart';
 import 'package:chemicalelements/models/chemical_element.dart';
 import 'package:chemicalelements/models/elements_list.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with ElementsTypeController {
+class _HomeState extends State<Home> with ElementsTypeController, TranslationHelper{
   int filter = 0;
   int currentElement = 0;
   ScreenHelper screenHelper;
@@ -61,10 +63,8 @@ class _HomeState extends State<Home> with ElementsTypeController {
 
   _titleApp() {
     return Text(
-      "Elementos químicos",
-      style: TextStyle(
-          fontSize: 30, fontFamily: 'Quicksand', fontWeight: FontWeight.bold),
-    );
+      getTranslation("home_title"),
+      style: TextStyle(fontSize: 30, fontFamily: 'Quicksand', fontWeight: FontWeight.bold),);
   }
 
   _pageViewContainer() {
@@ -172,7 +172,7 @@ class _HomeState extends State<Home> with ElementsTypeController {
           child: Center(
             child: correspondentElement == 0
                 ? Text(
-                    "Todos",
+                    getTranslation("all_category"),
                     style: TextStyle(
                         color: filter == correspondentElement
                             ? Colors.white

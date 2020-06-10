@@ -1,3 +1,16 @@
 {
-    
+    "home_title":"Elementos químicos",
+
+    "all_category":"Todos",
+
+    "non_metal":"Não metal",
+    "noble_gas":"Gás nobre",
+    "alkali_metal":"Metal alcalino",
+    "alkali_earch_metal":"Metal alcalino terroso",
+    "semi_metal":"Semimetal",
+    "halogen":"Halogênio",
+    "other_metals":"Outros metais",
+    "transition_metal":"Metal de transição",
+    "lanthanide":"Lantanídeo",
+    "actinide":"Actinídio"
 }
