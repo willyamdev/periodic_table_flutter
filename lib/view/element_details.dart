@@ -78,7 +78,6 @@ class ElementDetails extends StatelessWidget
                           return _elementDescription(descriptionText);
                           break;
                       }
-
                       return Container();
                     }),
               ],
