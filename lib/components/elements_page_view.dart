@@ -1,4 +1,5 @@
 import 'package:chemicalelements/controlers/elements_type_controller.dart';
+import 'package:chemicalelements/helpers/translation_helper.dart';
 import 'package:chemicalelements/models/chemical_element.dart';
 import 'package:chemicalelements/view/element_details.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class ElementsPageView extends StatefulWidget {
 }
 
 class _ElementsPageViewState extends State<ElementsPageView>
-    with ElementsTypeController {
+    with ElementsTypeController, TranslationHelper {
   int currentElement = 0;
   PageController _pageController = PageController(viewportFraction: 0.8);
 
@@ -82,7 +83,7 @@ class _ElementsPageViewState extends State<ElementsPageView>
                   SizedBox(height: 10),
                   _elementTypeContainer(chemicalElement.elementType,
                       chemicalElement.chemicalSymbol),
-                  _elementName(chemicalElement.elementName,
+                  _elementName(getTranslation(chemicalElement.elementName),
                       chemicalElement.chemicalSymbol)
                 ],
               ),
@@ -139,12 +140,17 @@ class _ElementsPageViewState extends State<ElementsPageView>
       tag: symbol + "name",
       child: Material(
         type: MaterialType.transparency,
-        child: Text(name,
+        child: FittedBox(
+          fit: BoxFit.fitWidth,
+          child: Text(
+            name,
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 35,
                 fontFamily: 'Quicksand',
-                fontWeight: FontWeight.bold)),
+                fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
     );
   }

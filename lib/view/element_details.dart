@@ -2,17 +2,20 @@ import 'package:chemicalelements/components/custom_app_bar.dart';
 import 'package:chemicalelements/controlers/elements_type_controller.dart';
 import 'package:chemicalelements/controlers/wikipedia_api.dart';
 import 'package:chemicalelements/helpers/color_helper.dart';
+import 'package:chemicalelements/helpers/translation_helper.dart';
 import 'package:chemicalelements/models/chemical_element.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ElementDetails extends StatelessWidget
-    with ElementsTypeController, WikipediaApi {
+    with ElementsTypeController, WikipediaApi, TranslationHelper {
   ChemicalElement element;
   ElementDetails(this.element);
   String descriptionText = "";
 
-  _getDescription() async{
-    descriptionText = await getDescriptionElement(element.elementName);
+  _getDescription(BuildContext context) async {
+    descriptionText =
+        await getDescriptionElement(getTranslation(element.elementName), context.locale.languageCode);
   }
 
   @override
@@ -56,20 +59,24 @@ class ElementDetails extends StatelessWidget
                   tag: element.chemicalSymbol + "name",
                   child: Material(
                       type: MaterialType.transparency,
-                      child: _elementName(element.elementName)),
+                      child: _elementName(getTranslation(element.elementName))),
                 ),
                 SizedBox(
                   height: 30,
                 ),
                 FutureBuilder(
-                    future: _getDescription(),
+                    future: _getDescription(context),
                     builder: (context, snapshot) {
                       switch (snapshot.connectionState) {
                         case ConnectionState.none:
                           // TODO: Handle this case.
                           break;
                         case ConnectionState.waiting:
-                          return Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(ColorHelper.primaryColor),));
+                          return Center(
+                              child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                ColorHelper.primaryColor),
+                          ));
                           break;
                         case ConnectionState.active:
                           // TODO: Handle this case.

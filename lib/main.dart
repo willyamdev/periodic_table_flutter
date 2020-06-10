@@ -6,7 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 void main() {
   runApp(
     EasyLocalization(
-        supportedLocales: [Locale('en', 'US'), Locale('pt', 'BR')],
+        supportedLocales: [Locale('en', 'US'), Locale('pt', 'BR'), Locale('pt', 'PT')],
         path: 'assets/langs', // <-- change patch to your
         fallbackLocale: Locale('en', 'US'),
         child: MyApp()),

@@ -1,8 +1,9 @@
+import 'package:chemicalelements/helpers/translation_helper.dart';
 import 'package:chemicalelements/models/chemical_element.dart';
 import 'package:chemicalelements/models/elements_list.dart';
 import 'package:flutter/material.dart';
 
-class CustomSearchDelegate extends SearchDelegate<ChemicalElement> {
+class CustomSearchDelegate extends SearchDelegate<ChemicalElement> with TranslationHelper{
   List<ChemicalElement> elements;
   ElementsList elementsList = ElementsList();
   CustomSearchDelegate(){
@@ -50,7 +51,7 @@ class CustomSearchDelegate extends SearchDelegate<ChemicalElement> {
           itemCount: list.length,
           itemBuilder: (context, indice) {
             return ListTile(
-              title: Text(list[indice].elementName),
+              title: Text(getTranslation(list[indice].elementName)),
               onTap: () {
                 close(context, list[indice]);
               },
