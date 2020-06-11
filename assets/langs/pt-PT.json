@@ -2,6 +2,8 @@
     "home_title":"Elementos químicos",
 
     "all_category":"Todos",
+    
+    "search_screen_no_search":"Não há nenhum resultado para essa pesquisa!",
 
     "non_metal":"Não metal",
     "noble_gas":"Gás nobre",
@@ -106,7 +108,7 @@
     "thorium":"Tório",
     "protactinium":"Protactínio",
     "uranium":"Urânio",
-    "neptune":"Netúnio",
+    "neptunium":"Netúnio",
     "plutonium":"Plutônio",
     "americium":"Amerício",
     "curium":"Cúrio",

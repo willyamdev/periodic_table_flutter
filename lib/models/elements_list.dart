@@ -459,7 +459,7 @@ class ElementsList {
       10,
     ),
     ChemicalElement(
-      "neptune",
+      "neptunium",
       "Np",
       10,
     ),

@@ -61,7 +61,7 @@ class CustomSearchDelegate extends SearchDelegate<ChemicalElement> with Translat
       );
     } else {
       return Container(
-        child: Center(child: Text("Não há nenhum resultado para essa pesquisa")),
+        child: Center(child: Text(getTranslation("search_screen_no_search"))),
       );
     }
   }

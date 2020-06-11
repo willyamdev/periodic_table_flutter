@@ -2,6 +2,8 @@
     "home_title":"Chemical Elements",
 
     "all_category":"All",
+
+    "search_screen_no_search":"There are no results for this search!",
     
     "non_metal":"Non-metal",
     "noble_gas":"Noble gas",
@@ -99,14 +101,14 @@
     "bismuth":"Bismuth",
     "polonium":"Polonium",
     "astatine":"Astatine",
-    "radon":"radon",
+    "radon":"Radon",
     "francium":"Francium",
     "radium":"Radium",
     "actinium":"Actinium",
     "thorium":"Thorium",
     "protactinium":"Protactinium",
     "uranium":"Uranium",
-    "neptune":"Neptune",
+    "neptunium":"Neptunium",
     "plutonium":"Plutonium",
     "americium":"Americium",
     "curium":"Curium",
